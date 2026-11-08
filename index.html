@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>madélina — Pâtisserie artisanale &amp; café à Bizerte</title>
+<meta name="description" content="madélina par Haifa Ben Salem — pâtisserie artisanale, café de spécialité et brunchs généreux à Sidi Salem, Bizerte. Fait maison. Fait avec le cœur. Mar–Dim 07:00–23:00.">
+<meta name="theme-color" content="#A64B2A">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="madélina — Pâtisserie artisanale &amp; café à Bizerte">
+<meta property="og:description" content="Fait maison. Fait avec le cœur. Pâtisserie artisanale, café et brunchs à Sidi Salem, Bizerte.">
+<meta property="og:image" content="assets/hero.webp">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF5EE;
+    --cream-deep:#F2E9DC;
+    --sand:#E7D9C7;
+    --ink:#241812;
+    --ink-soft:#5B473B;
+    --terra:#A64B2A;
+    --terra-deep:#84371C;
+    --terra-soft:#E0A182;
+    --green:#6E7B5B;
+    --line:rgba(36,24,18,.14);
+    --line-soft:rgba(36,24,18,.08);
+    --display:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --wrap:1200px;
+    --pad:clamp(1.2rem,5vw,4rem);
+    --r:4px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:var(--sans);font-weight:400;line-height:1.65;
+    font-size:clamp(.95rem,.35vw + .88rem,1.02rem);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:-.02em;margin:0}
+  p{margin:0}
+  ul{margin:0;padding:0;list-style:none}
+  :focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:2px}
+  ::selection{background:var(--terra-soft);color:var(--ink)}
+
+  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+  .eyebrow{
+    font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-soft);display:flex;align-items:center;gap:.6rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.5;flex:none}
+  .section{padding-block:clamp(3.5rem,8vw,6.5rem)}
+  .section-head{max-width:46ch}
+  .section-head h2{font-size:clamp(1.95rem,4.4vw,3.2rem);margin-block:.85rem .9rem}
+  .section-head p{color:var(--ink-soft);max-width:48ch}
+  .serif-accent{font-style:italic;color:var(--terra)}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    --bg:var(--ink);--fg:var(--cream);
+    display:inline-flex;align-items:center;gap:.65rem;
+    padding:.92rem 1.55rem;border:1px solid var(--bg);border-radius:100px;
+    background:var(--bg);color:var(--fg);
+    font-size:.79rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+    cursor:pointer;transition:transform .25s ease,background .25s ease,color .25s ease,border-color .25s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn--solid{--bg:var(--terra);--fg:#fff}
+  .btn--solid:hover{--bg:var(--terra-deep)}
+  .btn--ghost{--bg:transparent;--fg:var(--cream);border-color:rgba(250,245,238,.45)}
+  .btn--ghost:hover{--bg:var(--cream);--fg:var(--ink);border-color:var(--cream)}
+  .btn--ink{--bg:var(--ink);--fg:var(--cream)}
+  .btn--ink:hover{--bg:#3a2a20}
+  .btn--outline{--bg:transparent;--fg:var(--ink);border-color:var(--line)}
+  .btn--outline:hover{--bg:var(--ink);--fg:var(--cream);border-color:var(--ink)}
+  .btn .arw{transition:transform .25s ease}
+  .btn:hover .arw{transform:translateX(4px)}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;
+    padding-block:1rem;color:var(--cream);
+    transition:background .4s ease,color .4s ease,box-shadow .4s ease,padding .4s ease;
+  }
+  .nav::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(20,12,8,.6),rgba(20,12,8,0));
+    transition:opacity .4s ease;pointer-events:none;
+  }
+  .nav.is-stuck{background:rgba(250,245,238,.95);color:var(--ink);box-shadow:0 1px 0 var(--line);padding-block:.55rem;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .nav.is-stuck::after{opacity:0}
+  .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:1.6rem;width:100%}
+  .brand{display:flex;align-items:center;gap:.7rem;line-height:1}
+  .brand__logo{
+    width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;
+    box-shadow:0 0 0 1px rgba(255,255,255,.35),0 6px 18px -10px rgba(0,0,0,.7);
+    transition:transform .4s ease;
+  }
+  .brand:hover .brand__logo{transform:rotate(-6deg)}
+  .brand__txt{display:flex;flex-direction:column;gap:.32rem}
+  .brand__word{font-family:var(--display);font-size:1.42rem;letter-spacing:-.02em}
+  .brand__sub{font-size:.58rem;letter-spacing:.19em;text-transform:uppercase;opacity:.72}
+  .nav__links{display:flex;align-items:center;gap:1.8rem}
+  .nav__links a{
+    position:relative;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    padding-block:.35rem;opacity:.94;
+  }
+  .nav__links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+  }
+  .nav__links a:hover::after{transform:scaleX(1)}
+  .nav__cta{display:inline-flex;align-items:center;gap:.5rem;padding:.66rem 1.2rem;border:1px solid currentColor;border-radius:100px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:background .25s ease,color .25s ease,border-color .25s ease}
+  .nav__cta:hover{background:var(--terra);border-color:var(--terra);color:#fff}
+  .nav__toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid currentColor;border-radius:50%;background:transparent;cursor:pointer}
+  .nav__toggle span{display:block;width:16px;height:1px;background:currentColor;position:relative}
+  .nav__toggle span::before,.nav__toggle span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:currentColor;transition:transform .3s ease,top .3s ease}
+  .nav__toggle span::before{top:-5px}
+  .nav__toggle span::after{top:5px}
+  .nav__toggle[aria-expanded="true"] span{background:transparent}
+  .nav__toggle[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+  .nav__toggle[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+  .nav__sheet{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.2rem var(--pad) 1.8rem}
+  .nav__sheet[data-open="true"]{display:block}
+  .nav__sheet a{display:block;padding-block:.8rem;border-bottom:1px solid var(--line-soft);font-family:var(--display);font-size:1.3rem}
+  .nav__sheet a:last-of-type{border-bottom:0}
+  .nav__sheet .btn{margin-top:1rem;width:100%;justify-content:center}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;
+    padding-block:7rem clamp(2rem,5vw,3.4rem);color:var(--cream);overflow:hidden;
+    background:linear-gradient(140deg,#3d2a20,#7d4526 60%,#c9772f);
+  }
+  .hero__media{position:absolute;inset:0;z-index:0}
+  .hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;transform:scale(1.04);animation:heroDrift 30s ease-in-out infinite alternate}
+  @keyframes heroDrift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.1) translate3d(-1.2%,-1.4%,0)}}
+  .hero__media::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(18,10,6,.68) 0%,rgba(18,10,6,.22) 34%,rgba(18,10,6,.6) 74%,rgba(18,10,6,.92) 100%),
+      radial-gradient(120% 80% at 82% 12%,rgba(166,75,42,.4),transparent 62%);
+  }
+  .hero__inner{position:relative;z-index:1;width:100%}
+  .hero .eyebrow{color:rgba(250,245,238,.84)}
+  .hero h1{font-size:clamp(2.75rem,8vw,6.1rem);line-height:.94;letter-spacing:-.03em;margin-block:1.1rem 1.25rem;max-width:16ch}
+  .hero h1 em{font-style:italic;color:#F1C6A9;display:block}
+  .hero__lede{max-width:46ch;color:rgba(250,245,238,.88);font-size:clamp(.98rem,1.6vw,1.08rem);font-weight:300}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
+  .hero__meta{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:clamp(1.9rem,4vw,2.8rem);border-top:1px solid rgba(250,245,238,.24);padding-top:1.3rem}
+  .chip{
+    display:inline-flex;align-items:center;gap:.5rem;padding:.52rem .95rem;
+    border:1px solid rgba(250,245,238,.3);border-radius:100px;
+    font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(250,245,238,.94);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);background:rgba(250,245,238,.07);
+  }
+  .chip b{font-weight:600;letter-spacing:.03em}
+  .chip .star{color:#F4B860}
+  .dot{width:6px;height:6px;border-radius:50%;background:#7BD88F;box-shadow:0 0 0 3px rgba(123,216,143,.22);flex:none}
+  .dot.is-closed{background:#E8746B;box-shadow:0 0 0 3px rgba(232,116,107,.22)}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--ink);color:var(--cream);overflow:hidden;padding-block:.9rem;border-block:1px solid rgba(250,245,238,.08)}
+  .marquee__track{display:flex;gap:2.4rem;width:max-content;animation:slide 42s linear infinite}
+  .marquee__track span{display:inline-flex;align-items:center;gap:2.4rem;font-family:var(--display);font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;color:rgba(250,245,238,.85)}
+  .marquee__track span::after{content:"✦";color:var(--terra-soft);font-size:.78rem;letter-spacing:0}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- maison ---------- */
+  .maison{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5.5vw,4.5rem);align-items:center}
+  .maison h2{font-size:clamp(1.95rem,4.3vw,3.1rem);margin-block:.85rem 1.3rem}
+  .maison p{color:var(--ink-soft)}
+  .maison__lead{font-family:var(--display);font-size:clamp(1.2rem,2.1vw,1.5rem);line-height:1.38;letter-spacing:-.01em;color:var(--ink)!important}
+  .maison p + p{margin-top:1rem}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-block:2rem;border-block:1px solid var(--line);padding-block:1.3rem}
+  .stat b{display:block;font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.15rem);line-height:1;letter-spacing:-.02em}
+  .stat b i{font-style:normal;color:var(--terra)}
+  .stat span{display:block;margin-top:.4rem;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .pillars{display:grid;gap:1rem;margin-top:1.8rem}
+  .pillar{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+  .pillar__mark{font-size:.82rem;color:var(--terra);line-height:1.9}
+  .pillar h4{font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;line-height:1.5}
+  .pillar p{font-size:.9rem;margin-top:.12rem}
+
+  .collage{position:relative}
+  .collage__main{position:relative;overflow:hidden;border-radius:var(--r);aspect-ratio:4/5;background:linear-gradient(160deg,#c9772f,#4a3324)}
+  .collage__main img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .collage:hover .collage__main img{transform:scale(1.04)}
+  .collage__inset{
+    position:absolute;right:-.4rem;bottom:-2rem;width:44%;aspect-ratio:1;overflow:hidden;border-radius:50%;
+    border:6px solid var(--cream);background:#fff;box-shadow:0 18px 40px -22px rgba(36,24,18,.65);
+  }
+  .collage__inset img{width:100%;height:100%;object-fit:cover}
+  .collage__badge{
+    position:absolute;left:-.4rem;top:1.4rem;background:var(--cream);color:var(--ink);
+    padding:.6rem .95rem;border-radius:var(--r);box-shadow:0 14px 34px -20px rgba(36,24,18,.7);
+    font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;display:flex;align-items:center;gap:.4rem;
+  }
+  .collage__badge b{font-family:var(--display);font-size:.98rem;letter-spacing:0}
+
+  /* ---------- menu ---------- */
+  .menu-wrap{background:var(--cream-deep);border-block:1px solid var(--line-soft)}
+  .menu-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.4rem;margin-bottom:1.8rem}
+  .tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:clamp(1.5rem,3vw,2.2rem)}
+  .tab{
+    padding:.55rem 1.05rem;border:1px solid var(--line);border-radius:100px;background:transparent;
+    font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);
+    cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease;
+  }
+  .tab:hover{border-color:var(--terra);color:var(--terra)}
+  .tab[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+  .tab span{opacity:.55;font-size:.68rem;margin-left:.3rem}
+  .dishes{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:clamp(.9rem,1.8vw,1.35rem)}
+  .dish{
+    background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--r);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,opacity .3s ease;
+  }
+  .dish:hover{transform:translateY(-4px);box-shadow:0 22px 44px -30px rgba(36,24,18,.55);border-color:var(--line)}
+  .dish.is-hidden{display:none}
+  .dish__ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(150deg,var(--sand),#b9884f)}
+  .dish__ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .dish:hover .dish__ph img{transform:scale(1.05)}
+  .dish__body{padding:.85rem .95rem 1rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
+  .dish__row{display:flex;align-items:baseline;gap:.5rem}
+  .dish h4{font-family:var(--display);font-size:1.04rem;line-height:1.25;letter-spacing:-.01em}
+  .dish__price{margin-left:auto;font-family:var(--display);font-size:.92rem;color:var(--terra);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .dish__desc{font-size:.79rem;line-height:1.5;color:var(--ink-soft);margin-top:.1rem}
+  .menu-note{margin-top:clamp(1.6rem,3vw,2.2rem);padding-top:1.3rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;font-size:.79rem;color:var(--ink-soft)}
+
+  /* ---------- signatures ---------- */
+  .sigs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
+  .sig{position:relative;overflow:hidden;border-radius:var(--r);background:var(--ink);color:var(--cream);min-height:420px;display:flex;align-items:flex-end}
+  .sig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+  .sig:hover img{transform:scale(1.05)}
+  .sig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,6,0) 30%,rgba(20,10,6,.55) 62%,rgba(20,10,6,.95) 100%)}
+  .sig__body{position:relative;z-index:1;padding:clamp(1.1rem,2vw,1.6rem)}
+  .sig__body h3{font-size:1.6rem;margin-bottom:.45rem}
+  .sig__body p{font-size:.86rem;line-height:1.55;color:rgba(250,245,238,.82);max-width:34ch}
+  .sig__price{display:inline-block;margin-top:.8rem;font-family:var(--display);font-size:1rem;color:#F1C6A9;letter-spacing:.02em}
+
+  /* ---------- gallery ---------- */
+  .gallery{columns:4;column-gap:.9rem}
+  .shot{
+    position:relative;overflow:hidden;border-radius:var(--r);margin:0 0 .9rem;
+    break-inside:avoid;-webkit-column-break-inside:avoid;
+    background:linear-gradient(150deg,var(--sand),#b9884f);
+    box-shadow:0 14px 34px -26px rgba(30,18,12,.55);
+  }
+  .shot__btn{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:inherit;overflow:hidden}
+  .shot img{width:100%;height:auto;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .8s ease}
+  .gallery .shot:not(.is-in) img{transform:scale(1.07)}
+  .shot figcaption{
+    position:absolute;inset:auto 0 0 0;z-index:2;padding:2rem .95rem .8rem;pointer-events:none;
+    font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,245,238,.95);
+    background:linear-gradient(180deg,rgba(18,10,7,0),rgba(18,10,7,.8));
+    opacity:0;transform:translateY(10px);
+    transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .shot:hover img{transform:scale(1.055);filter:saturate(1.06)}
+    .shot:hover figcaption{opacity:1;transform:none}
+  }
+  .shot:focus-within figcaption{opacity:1;transform:none}
+  .shot__btn:focus-visible{outline:2px solid var(--terra);outline-offset:-4px}
+  .gallery .shot{transition-delay:calc(var(--i,0) * 70ms)}
+  @media (max-width:1040px){.gallery{columns:3}}
+
+  /* lightbox */
+  .lightbox{
+    position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:clamp(1rem,4vw,3rem);
+    background:rgba(16,10,8,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;
+  }
+  .lightbox[data-open="true"]{opacity:1;visibility:visible}
+  .lightbox__fig{margin:0;display:grid;gap:.9rem;justify-items:center;transform:scale(.97);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .lightbox[data-open="true"] .lightbox__fig{transform:none}
+  .lightbox__fig img{max-width:min(94vw,1080px);max-height:80vh;width:auto;height:auto;border-radius:var(--r);box-shadow:0 34px 90px -34px rgba(0,0,0,.85)}
+  .lightbox__fig figcaption{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,245,238,.7);text-align:center}
+  .lightbox__btn{
+    position:absolute;border:1px solid rgba(250,245,238,.2);background:rgba(22,13,9,.4);color:var(--cream);
+    width:46px;height:46px;border-radius:50%;display:grid;place-items:center;line-height:1;
+    font-size:1.35rem;cursor:pointer;transition:background .3s,border-color .3s,transform .3s;
+  }
+  .lightbox__btn:hover{background:rgba(166,75,42,.55);border-color:rgba(166,75,42,.9);transform:scale(1.06)}
+  .lightbox__close{top:clamp(.9rem,3vw,1.8rem);right:clamp(.9rem,3vw,1.8rem);font-size:1.5rem}
+  .lightbox__prev{left:clamp(.5rem,2.5vw,1.6rem);top:50%;margin-top:-23px}
+  .lightbox__next{right:clamp(.5rem,2.5vw,1.6rem);top:50%;margin-top:-23px}
+
+  /* ---------- reviews ---------- */
+  .reviews-wrap{background:var(--ink);color:var(--cream)}
+  .reviews-wrap .eyebrow{color:rgba(250,245,238,.6)}
+  .reviews-wrap .section-head h2{color:var(--cream)}
+  .score{display:flex;align-items:baseline;gap:.6rem;margin-top:1.1rem}
+  .score b{font-family:var(--display);font-size:2.5rem;line-height:1;letter-spacing:-.03em}
+  .score span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,245,238,.55)}
+  .stars{color:#F0A94A;letter-spacing:.18em;font-size:.78rem}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:clamp(1.5rem,3vw,2.4rem)}
+  .review{
+    border:1px solid rgba(250,245,238,.16);border-radius:var(--r);padding:clamp(1.2rem,2.2vw,1.8rem);
+    display:flex;flex-direction:column;gap:.9rem;
+    background:linear-gradient(180deg,rgba(250,245,238,.045),rgba(250,245,238,.01));
+    transition:border-color .3s ease,transform .3s ease;
+  }
+  .review:hover{border-color:rgba(166,75,42,.65);transform:translateY(-3px)}
+  .review p{font-family:var(--display);font-size:1rem;line-height:1.5;color:rgba(250,245,238,.92)}
+  .review footer{margin-top:auto;display:flex;align-items:center;gap:.7rem;padding-top:.3rem}
+  .avatar{width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgba(166,75,42,.28);color:#F1C6A9;font-family:var(--display);font-size:.88rem}
+  .review cite{font-style:normal;font-size:.8rem;font-weight:500;display:block;line-height:1.3}
+  .review small{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,245,238,.45)}
+
+  /* ---------- find us ---------- */
+  .find{display:grid;grid-template-columns:1fr 1.02fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .find h2{font-size:clamp(1.95rem,4.3vw,3.1rem);margin-block:.85rem 1rem}
+  .info-list{display:grid;gap:0;margin-top:1.9rem;border-top:1px solid var(--line)}
+  .info-row{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding-block:1.05rem;border-bottom:1px solid var(--line);align-items:start}
+  .info-row dt{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);padding-top:.3rem}
+  .info-row dd{margin:0;font-size:.96rem}
+  .info-row dd a{border-bottom:1px solid var(--line);transition:border-color .2s ease,color .2s ease}
+  .info-row dd a:hover{color:var(--terra);border-color:var(--terra)}
+  .info-row dd small{display:block;font-size:.78rem;color:var(--ink-soft);margin-top:.12rem}
+  .hours{display:grid;gap:.3rem;margin-top:.3rem;max-width:270px}
+  .hours div{display:flex;justify-content:space-between;gap:1rem;font-size:.88rem}
+  .hours div span:first-child{color:var(--ink-soft)}
+  .hours .closed{color:var(--terra)}
+  .map{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--sand);aspect-ratio:4/3.4;box-shadow:0 24px 60px -44px rgba(36,24,18,.8)}
+  .map iframe{width:100%;height:100%;border:0;filter:saturate(.92)}
+  .map__tag{position:absolute;left:1rem;bottom:1rem;z-index:2;background:rgba(250,245,238,.95);padding:.6rem .9rem;border-radius:2px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 8px 22px -14px rgba(36,24,18,.8)}
+
+  /* ---------- band ---------- */
+  .band{
+    position:relative;overflow:hidden;color:var(--cream);text-align:center;
+    padding-block:clamp(3rem,7vw,5.5rem);background:linear-gradient(135deg,#84371C,#A64B2A 48%,#7a3f1d);
+  }
+  .band::before{content:"";position:absolute;inset:0;opacity:.15;background-image:radial-gradient(circle at 1px 1px,rgba(250,245,238,.75) 1px,transparent 0);background-size:22px 22px}
+  .band__inner{position:relative;z-index:1;max-width:660px;margin-inline:auto;padding-inline:var(--pad)}
+  .band h2{font-size:clamp(1.85rem,4.2vw,2.9rem);margin-block:.9rem 1rem}
+  .band p{color:rgba(250,245,238,.88);max-width:50ch;margin-inline:auto}
+  .band .btn--ghost{border-color:rgba(255,255,255,.6)}
+  .band .btn--ghost:hover{background:#fff;color:var(--terra-deep);border-color:#fff}
+  .band__actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.8rem}
+
+  /* ---------- footer ---------- */
+  .foot{background:#170F0A;color:rgba(250,245,238,.72);padding-block:clamp(2.4rem,5vw,3.8rem) 1.5rem;font-size:.87rem}
+  .foot__grid{display:grid;grid-template-columns:1.7fr .8fr .9fr 1fr;gap:clamp(1.4rem,4vw,3rem)}
+  .foot .brand__word{color:var(--cream);font-size:1.5rem}
+  .foot .brand__logo{width:56px;height:56px;box-shadow:0 0 0 1px rgba(250,245,238,.15)}
+  .foot p{margin-top:.9rem;max-width:34ch;color:rgba(250,245,238,.55);font-size:.84rem}
+  .foot h4{font-family:var(--sans);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,245,238,.45);margin-bottom:.95rem;font-weight:500}
+  .foot ul{display:grid;gap:.5rem}
+  .foot a{transition:color .2s ease}
+  .foot a:hover{color:var(--terra-soft)}
+  .foot__bottom{margin-top:clamp(1.8rem,4vw,2.8rem);padding-top:1.2rem;border-top:1px solid rgba(250,245,238,.1);display:flex;flex-wrap:wrap;gap:.75rem;justify-content:space-between;align-items:center;font-size:.73rem;letter-spacing:.05em;color:rgba(250,245,238,.42)}
+  .social{display:flex;gap:.55rem;margin-top:1rem}
+  .social a{width:36px;height:36px;border:1px solid rgba(250,245,238,.2);border-radius:50%;display:grid;place-items:center;transition:background .25s ease,border-color .25s ease,color .25s ease}
+  .social a:hover{background:var(--terra);border-color:var(--terra);color:#fff}
+  .social svg{width:15px;height:15px;fill:currentColor}
+
+  /* ---------- reveal ---------- */
+  [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].is-in{opacity:1;transform:none}
+  [data-reveal][data-delay="1"]{transition-delay:.1s}
+  [data-reveal][data-delay="2"]{transition-delay:.2s}
+
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--cream);padding:.8rem 1.2rem;z-index:99}
+  .skip:focus{left:1rem;top:1rem}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1080px){
+    .nav__links{display:none}
+    .nav__cta{display:none}
+    .nav__toggle{display:inline-flex}
+    .review-grid{grid-template-columns:1fr}
+    .sigs{grid-template-columns:1fr 1fr}
+    .sigs .sig:last-child{grid-column:span 2;min-height:320px}
+    .foot__grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:900px){
+    .maison{grid-template-columns:1fr}
+    .collage{order:-1;max-width:520px;margin-inline:auto}
+    .find{grid-template-columns:1fr}
+    .map{aspect-ratio:4/3}
+    .nav__sheet{max-height:calc(100svh - 4rem);overflow:auto}
+  }
+  @media (max-width:720px){
+    .gallery{columns:2;column-gap:.6rem}
+    .shot{margin-bottom:.6rem}
+    .shot figcaption{opacity:1;transform:none;padding:1.5rem .7rem .6rem;font-size:.6rem;letter-spacing:.1em}
+    .lightbox__btn{width:40px;height:40px}
+    .shot--wide{grid-column:span 2}
+    .stats{grid-template-columns:1fr 1fr}
+    .stats .stat:last-child{grid-column:span 2}
+    .sigs{grid-template-columns:1fr}
+    .sigs .sig:last-child{grid-column:auto;min-height:380px}
+    .dishes{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  }
+  @media (max-width:560px){
+    .hero{min-height:auto;padding-block:7rem 2rem}
+    .hero h1{font-size:clamp(2.4rem,10.5vw,3.2rem)}
+    .chip{font-size:.64rem;padding:.44rem .78rem}
+    .foot__grid{grid-template-columns:1fr}
+    .info-row{grid-template-columns:1fr;gap:.3rem}
+    .info-row dt{padding-top:0}
+    .dish__ph{aspect-ratio:1}
+    .tabs{gap:.4rem}
+    .tab{padding:.45rem .8rem;font-size:.66rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    [data-reveal]{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#accueil">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#accueil" aria-label="madélina, retour à l'accueil">
+      <img class="brand__logo" src="assets/logo.webp" alt="Logo madélina" width="44" height="44">
+      <span class="brand__txt">
+        <span class="brand__word">madélina</span>
+        <span class="brand__sub">Pâtisserie &amp; Café</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#maison">La Maison</a>
+      <a href="#menu">Le Menu</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#avis">Avis</a>
+      <a href="#trouver">Nous trouver</a>
+    </nav>
+    <a class="nav__cta" href="tel:+21672413676">72 413 676</a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navSheet" aria-label="Ouvrir le menu"><span></span></button>
+  </div>
+  <div class="nav__sheet" id="navSheet" data-open="false">
+    <a href="#maison">La Maison</a>
+    <a href="#menu">Le Menu</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#avis">Avis</a>
+    <a href="#trouver">Nous trouver</a>
+    <a class="btn btn--solid" href="tel:+21672413676">Appeler · 72 413 676</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <div class="hero__media">
+      <img src="assets/hero.webp" alt="La salle de madélina : mur vert, vinyles encadrés, comptoir en faïence et vitrine de pâtisseries" width="1920" height="1080" fetchpriority="high">
+    </div>
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Sidi Salem · Bizerte · Tunisie</p>
+      <h1>Fait maison.<em>Fait avec le cœur.</em></h1>
+      <p class="hero__lede">Une pâtisserie artisanale, du café bien fait et des brunchs généreux. L'esprit <strong>madélina</strong>, à mi-chemin entre l'atelier parisien et la chaleur du foyer tunisien.</p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#menu">Découvrir le menu <span class="arw" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost" href="#trouver">Nous rendre visite</a>
+      </div>
+      <div class="hero__meta">
+        <span class="chip"><span class="star" aria-hidden="true">★</span> <b>4,8</b> · 138 avis Google</span>
+        <span class="chip"><span class="dot" id="statusDot" aria-hidden="true"></span> <span id="statusText">Mar – Dim · 07:00 – 23:00</span></span>
+        <span class="chip">52 créations à la carte</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>100% fait maison</span><span>Café de spécialité</span><span>Brunchs généreux</span><span>Haifa Ben Salem</span><span>Vinyles &amp; café</span><span>Sidi Salem, Bizerte</span>
+      <span>100% fait maison</span><span>Café de spécialité</span><span>Brunchs généreux</span><span>Haifa Ben Salem</span><span>Vinyles &amp; café</span><span>Sidi Salem, Bizerte</span>
+    </div>
+  </div>
+
+  <!-- LA MAISON -->
+  <section class="section" id="maison">
+    <div class="wrap maison">
+      <div data-reveal>
+        <p class="eyebrow">Notre histoire</p>
+        <h2>Plus qu'un café,<br><span class="serif-accent">une galerie de saveurs.</span></h2>
+        <p class="maison__lead">Haifa Ben Salem a imaginé madélina comme un lieu intime, où chaque création est pensée avec soin — des ingrédients jusqu'à la présentation.</p>
+        <p>Nos pâtisseries portent en elles un savoir-faire artisanal qui allie techniques françaises et saveurs du Maghreb, dans une harmonie simple et rare. Sur les murs, des vinyles ; derrière la vitrine, des entremets montés à la main ; au comptoir, un café serré comme il se doit.</p>
+        <p>Ici, on prend le temps : celui d'un express au comptoir, d'un brunch qui s'étire, d'une part de fraisier partagée.</p>
+        <div class="stats">
+          <div class="stat"><b>100<i>%</i></b><span>Fait maison</span></div>
+          <div class="stat"><b>4,8<i>★</i></b><span>Note Google</span></div>
+          <div class="stat"><b>∞</b><span>Saveurs</span></div>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar__mark" aria-hidden="true">✦</span>
+            <div><h4>Ingrédients d'exception</h4><p>Sélectionnés chaque matin avec soin et passion.</p></div>
+          </div>
+          <div class="pillar">
+            <span class="pillar__mark" aria-hidden="true">✦</span>
+            <div><h4>Le geste juste, chaque fois</h4><p>Chaque pâtisserie est façonnée à la main, sans compromis.</p></div>
+          </div>
+          <div class="pillar">
+            <span class="pillar__mark" aria-hidden="true">✦</span>
+            <div><h4>Une ambiance qui vous accueille</h4><p>Un espace pensé pour le calme, la beauté et le partage.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="collage" data-reveal data-delay="1">
+        <div class="collage__main">
+          <img src="assets/art-de-creer.webp" alt="La vitrine de madélina : entremets, tartelettes et fraisiers alignés" loading="lazy" width="900" height="1600">
+        </div>
+        <div class="collage__inset">
+          <img src="assets/logo.webp" alt="Le sceau madélina, par Haifa Ben Salem" loading="lazy" width="400" height="400">
+        </div>
+        <div class="collage__badge"><b>4,8</b> · 138 avis</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <div class="menu-wrap">
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="menu-top">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">La carte</p>
+            <h2>Notre menu complet</h2>
+            <p>Toute la carte de la maison : boissons chaudes et fraîches, viennoiseries, gâteaux et tartes, plats du brunch. Prix en dinars tunisiens.</p>
+          </div>
+          <a class="btn btn--outline" href="tel:+21672413676" data-reveal data-delay="1">Réserver une table <span class="arw" aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="tabs" role="group" aria-label="Filtrer la carte par catégorie">
+          <button class="tab" type="button" data-filter="all" aria-pressed="true">Tout <span>52</span></button>
+          <button class="tab" type="button" data-filter="chaud" aria-pressed="false">Boissons chaudes <span>13</span></button>
+          <button class="tab" type="button" data-filter="frais" aria-pressed="false">Boissons fraîches <span>11</span></button>
+          <button class="tab" type="button" data-filter="viennoiserie" aria-pressed="false">Viennoiseries <span>4</span></button>
+          <button class="tab" type="button" data-filter="gateaux" aria-pressed="false">Gâteaux &amp; tartes <span>14</span></button>
+          <button class="tab" type="button" data-filter="plats" aria-pressed="false">Plats <span>10</span></button>
+        </div>
+
+        <div class="dishes" id="dishes">
+          <!-- Boissons chaudes -->
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1781187252680.webp" alt="Ube" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Ube</h4><span class="dish__price">9,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000000.webp" alt="Cinnamon Latte" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Cinnamon Latte</h4><span class="dish__price">8,5 DT</span></div><p class="dish__desc">Un latte chaud parfumé à la cannelle et surmonté de crème.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000001.webp" alt="Tiramisu Latte" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Tiramisu Latte</h4><span class="dish__price">9,0 DT</span></div><p class="dish__desc">Inspiré du célèbre dessert italien, aux notes de café et de crème.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000002.webp" alt="Thé et tisane BIO" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Thé &amp; tisane BIO</h4><span class="dish__price">3,8 DT</span></div><p class="dish__desc">Une sélection de thés et infusions biologiques.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000003.webp" alt="Matcha Latte" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Matcha Latte</h4><span class="dish__price">6,5 DT</span></div><p class="dish__desc">Notre matcha BIO en version latte, chaud et doux.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000004.webp" alt="Caramel macchiato" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Caramel macchiato</h4><span class="dish__price">5,5 DT</span></div><p class="dish__desc">Un latte chaud marqué d'espresso et nappé de caramel.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000005.webp" alt="Big Bol Latte" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Big Bol Latte</h4><span class="dish__price">8,0 DT</span></div><p class="dish__desc">Un grand bol de café au lait + une viennoiserie pur beurre au choix.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000006.webp" alt="Affogato" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Affogato</h4><span class="dish__price">7,5 DT</span></div><p class="dish__desc">Un espresso chaud versé sur une glace vanille maison.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000007.webp" alt="Cappuccino" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Cappuccino</h4><span class="dish__price">4,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000008.webp" alt="Américain" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Américain</h4><span class="dish__price">3,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000009.webp" alt="Direct" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Direct</h4><span class="dish__price">3,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000010.webp" alt="Express" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Express</h4><span class="dish__price">3,0 DT</span></div><p class="dish__desc">Un café court et intense.</p></div>
+          </article>
+          <article class="dish" data-cat="chaud">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000011.webp" alt="Capucin" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Capucin</h4><span class="dish__price">3,5 DT</span></div></div>
+          </article>
+
+          <!-- Boissons fraîches -->
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1786287652557.webp" alt="Mojito" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Mojito</h4><span class="dish__price">5,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1784280031448.webp" alt="Caramel macchiato glacé" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Caramel macchiato glacé</h4><span class="dish__price">7,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779379382073.webp" alt="Matcha mangue" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Matcha mangue</h4><span class="dish__price">12,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000014.webp" alt="Matcha latte vanille" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Matcha latte vanille</h4><span class="dish__price">7,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000015.webp" alt="Matcha latte glacé" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Matcha latte glacé</h4><span class="dish__price">6,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000016.webp" alt="Américain glacé" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Américain glacé</h4><span class="dish__price">5,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000017.webp" alt="Latte glacé" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Latte glacé</h4><span class="dish__price">6,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000018.webp" alt="Jus du jour" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Jus du jour</h4><span class="dish__price">6,0 DT</span></div><p class="dish__desc">Fruits de saison pressés minute.</p></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000019.webp" alt="Soda" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Soda</h4><span class="dish__price">2,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000020.webp" alt="Eau 1/2 L" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Eau 1/2 L</h4><span class="dish__price">1,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="frais">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000021.webp" alt="Eau 1 L" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Eau 1 L</h4><span class="dish__price">2,0 DT</span></div></div>
+          </article>
+
+          <!-- Viennoiseries -->
+          <article class="dish" data-cat="viennoiserie">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000024.webp" alt="Danish à la fraise" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Danish à la fraise</h4><span class="dish__price">4,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="viennoiserie">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000025.webp" alt="Croissandine" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Croissandine</h4><span class="dish__price">3,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="viennoiserie">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000026.webp" alt="Croissant" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Croissant</h4><span class="dish__price">3,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="viennoiserie">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000027.webp" alt="Pain au chocolat" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Pain au chocolat</h4><span class="dish__price">3,5 DT</span></div></div>
+          </article>
+
+          <!-- Gâteaux et tartes -->
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1793967435715.webp" alt="Entremet chocolat framboise" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Entremet chocolat framboise</h4><span class="dish__price">10,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1791489136443.webp" alt="Island" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Island</h4><span class="dish__price">9,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1784192868461.webp" alt="Peanut" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Peanut</h4><span class="dish__price">8,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1784189841252.webp" alt="Pêchier" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Pêchier</h4><span class="dish__price">7,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1784187869922.webp" alt="Tarte violetta" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Tarte violetta</h4><span class="dish__price">8,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1784187394112.webp" alt="Mango Pistache" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Mango Pistache</h4><span class="dish__price">12,8 DT</span></div><p class="dish__desc">Un entremets frais, fruité et délicatement pistaché.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1784187239008.webp" alt="Opera" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Opera</h4><span class="dish__price">8,5 DT</span></div><p class="dish__desc">Biscuit Joconde, crème au café, ganache et glaçage chocolat.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779684077375.webp" alt="Forêt noire" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Forêt noire</h4><span class="dish__price">12,5 DT</span></div><p class="dish__desc">Chocolat profond, cerises fondantes et légèreté vanillée.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779547596535.webp" alt="Mille-feuille" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Mille-feuille</h4><span class="dish__price">9,0 DT</span></div><p class="dish__desc">Feuilletage pur beurre, crème à la vanille, caramel beurre salé.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779394340566.webp" alt="Tartelette aux fruits" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Tartelette aux fruits</h4><span class="dish__price">6,0 DT</span></div><p class="dish__desc">Fraîche et légère, garnie de fruits de saison.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779394199039.webp" alt="La mûre" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>La mûre</h4><span class="dish__price">8,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000028.webp" alt="Fraisier" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Fraisier</h4><span class="dish__price">7,5 DT</span></div><p class="dish__desc">Frais, léger et gourmand autour de la fraise — notre signature.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000029.webp" alt="Tarte au citron" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Tarte au citron</h4><span class="dish__price">4,5 DT</span></div><p class="dish__desc">Fraîche et équilibrée, entre douceur et notes acidulées.</p></div>
+          </article>
+          <article class="dish" data-cat="gateaux">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000030.webp" alt="Tartelette à la fraise" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Tartelette à la fraise</h4><span class="dish__price">6,5 DT</span></div></div>
+          </article>
+
+          <!-- Plats -->
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1792917930157.webp" alt="Açai Bowl" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Açai Bowl</h4><span class="dish__price">13,5 DT</span></div><p class="dish__desc">Baie d'Amazonie et banane, en un bowl onctueux et coloré.</p></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779358107466.webp" alt="Granola bowl" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Granola bowl</h4><span class="dish__price">9,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779357894578.webp" alt="Brioche perdue" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Brioche perdue</h4><span class="dish__price">18,5 DT</span></div><p class="dish__desc">Brioche maison, granola, fruits de saison, glace vanille et caramel.</p></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779357690913.webp" alt="Ranchy Toast" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Ranchy Toast</h4><span class="dish__price">18,5 DT</span></div><p class="dish__desc">Pain complet, œufs brouillés, viande séchée, batatas et sauce à l'ail.</p></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779357493767.webp" alt="Œuf mollet" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Œuf mollet</h4><span class="dish__price">9,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779357133774.webp" alt="Œufs Bénédicte" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Œufs Bénédicte</h4><span class="dish__price">18,5 DT</span></div><p class="dish__desc">Pain burger maison, poulet fumé, œufs pochés, hollandaise pur beurre.</p></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779356879671.webp" alt="Plat Merguez" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Plat Merguez</h4><span class="dish__price">17,5 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779356615217.webp" alt="Omelette nature" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Omelette nature</h4><span class="dish__price">8,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779356412762.webp" alt="Croissant salé" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Croissant salé</h4><span class="dish__price">9,0 DT</span></div></div>
+          </article>
+          <article class="dish" data-cat="plats">
+            <div class="dish__ph"><img src="assets/menu/plat-1779455000031.webp" alt="Avocado Toast" loading="lazy" width="400" height="300"></div>
+            <div class="dish__body"><div class="dish__row"><h4>Avocado Toast</h4><span class="dish__price">15,5 DT</span></div></div>
+          </article>
+        </div>
+
+        <div class="menu-note" data-reveal>
+          <em>Prix en dinars tunisiens. La carte évolue au fil des saisons et des envies de Haifa.</em>
+          <a class="btn btn--ink" href="tel:+21672413676">Commander par téléphone</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SIGNATURES -->
+  <section class="section" id="signatures">
+    <div class="wrap">
+      <div class="section-head" data-reveal style="margin-bottom:clamp(1.6rem,3vw,2.4rem)">
+        <p class="eyebrow">Les signatures</p>
+        <h2>Ce qu'on vient chercher</h2>
+        <p>Trois maisons dans la maison : la pâtisserie signature, le brunch du week-end et le gâteau que l'on partage.</p>
+      </div>
+      <div class="sigs">
+        <article class="sig" data-reveal>
+          <img src="assets/menu/plat-1779455000028.webp" alt="Part de fraisier madélina" loading="lazy" width="600" height="450">
+          <div class="sig__body">
+            <h3>Le Fraisier</h3>
+            <p>Un fraisier tout en douceur, mêlant fraîcheur, légèreté et gourmandise autour de la fraise. Notre pâtisserie signature.</p>
+            <span class="sig__price">7,5 DT la part</span>
+          </div>
+        </article>
+        <article class="sig" data-reveal data-delay="1">
+          <img src="assets/menu/plat-1779357133774.webp" alt="Œufs Bénédicte madélina" loading="lazy" width="600" height="450">
+          <div class="sig__body">
+            <h3>Œufs Bénédicte</h3>
+            <p>Pain burger maison pur beurre, fromage frais, suprême de poulet fumé, œufs pochés fermiers, sauce hollandaise et salade.</p>
+            <span class="sig__price">18,5 DT</span>
+          </div>
+        </article>
+        <article class="sig" data-reveal data-delay="2">
+          <img src="assets/menu/plat-1784187239008.webp" alt="Part d'Opera au café" loading="lazy" width="600" height="450">
+          <div class="sig__body">
+            <h3>L'Opera</h3>
+            <p>Biscuit Joconde, crème au café, ganache chocolat et glaçage au chocolat — le classique parisien, à la manière de Haifa.</p>
+            <span class="sig__price">8,5 DT la part</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="section" id="galerie" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head" data-reveal style="margin-bottom:clamp(1.6rem,3vw,2.4rem)">
+        <p class="eyebrow">Galerie</p>
+        <h2>L'atelier en images</h2>
+        <p>La façade, le bar, le mur des vinyles, la terrasse — la maison comme on la vit, à Sidi Salem.</p>
+      </div>
+      <div class="gallery">
+        <figure class="shot" data-reveal style="--i:0">
+          <button class="shot__btn" type="button" data-index="0" aria-label="Agrandir : La façade, Sidi Salem">
+            <img src="assets/atelier/atelier-01.jpg" alt="La façade blanche de madélina à Sidi Salem, enseigne terracotta et tables en terrasse" loading="lazy" width="720" height="1280">
+          </button>
+          <figcaption>La façade, Sidi Salem</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:1">
+          <button class="shot__btn" type="button" data-index="1" aria-label="Agrandir : Le bar et ses affiches">
+            <img src="assets/atelier/atelier-02.jpg" alt="Le comptoir du bar, ses tabourets et trois affiches encadrées sur le mur blanc" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>Le bar et ses affiches</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:2">
+          <button class="shot__btn" type="button" data-index="2" aria-label="Agrandir : Le comptoir côté rue">
+            <img src="assets/atelier/atelier-03.jpg" alt="Le comptoir en lattes de bois, ses suspensions dorées et la fenêtre donnant sur la rue" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>Le comptoir côté rue</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:3">
+          <button class="shot__btn" type="button" data-index="3" aria-label="Agrandir : Le mur des vinyles">
+            <img src="assets/atelier/atelier-04.jpg" alt="Le mur vert aux vinyles encadrés, la machine à coudre recyclée en console et le comptoir en faïence" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>Le mur des vinyles</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:4">
+          <button class="shot__btn" type="button" data-index="4" aria-label="Agrandir : Le coin jukebox">
+            <img src="assets/atelier/atelier-05.jpg" alt="Le coin jukebox : un jukebox vintage et un téléphone à cadran posés sur le comptoir, devant la fenêtre" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>Le coin jukebox</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:5">
+          <button class="shot__btn" type="button" data-index="5" aria-label="Agrandir : La carte du jour">
+            <img src="assets/atelier/atelier-06.jpg" alt="Le tableau noir de la carte des plats au-dessus de la vitrine de pâtisseries" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>La carte du jour</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:6">
+          <button class="shot__btn" type="button" data-index="6" aria-label="Agrandir : Vers la terrasse">
+            <img src="assets/atelier/atelier-07.jpg" alt="La porte arche vitrée ouverte sur la terrasse, entre le bar et les tables de la salle" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>Vers la terrasse</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:7">
+          <button class="shot__btn" type="button" data-index="7" aria-label="Agrandir : La salle du matin">
+            <img src="assets/atelier/atelier-08.jpg" alt="La salle du matin : tabourets orange et bleus alignés sous les affiches et les suspensions" loading="lazy" width="720" height="964">
+          </button>
+          <figcaption>La salle du matin</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:8">
+          <button class="shot__btn" type="button" data-index="8" aria-label="Agrandir : Vinyles encadrés">
+            <img src="assets/atelier/atelier-09.jpg" alt="Deux pochettes de vinyles encadrées sur le mur vert de l'atelier" loading="lazy" width="1280" height="960">
+          </button>
+          <figcaption>Vinyles encadrés</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:9">
+          <button class="shot__btn" type="button" data-index="9" aria-label="Agrandir : Le coin télé vintage">
+            <img src="assets/atelier/atelier-10.jpg" alt="Un téléviseur vintage posé sur une table de machine à coudre, contre le mur vert" loading="lazy" width="960" height="1280">
+          </button>
+          <figcaption>Le coin télé vintage</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:10">
+          <button class="shot__btn" type="button" data-index="10" aria-label="Agrandir : Les étagères du comptoir">
+            <img src="assets/atelier/atelier-11.jpg" alt="Les étagères blanches garnies d'objets et de vaisselle au-dessus du comptoir" loading="lazy" width="1280" height="960">
+          </button>
+          <figcaption>Les étagères du comptoir</figcaption>
+        </figure>
+        <figure class="shot" data-reveal style="--i:11">
+          <button class="shot__btn" type="button" data-index="11" aria-label="Agrandir : Sous les suspensions">
+            <img src="assets/atelier/atelier-12.jpg" alt="Les suspensions en rotin suspendues au-dessus des tables, sous un plafond de vigne" loading="lazy" width="1280" height="960">
+          </button>
+          <figcaption>Sous les suspensions</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <div class="reviews-wrap">
+    <section class="section" id="avis">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Témoignages</p>
+          <h2>L'expérience madélina,<br>vue par vous</h2>
+          <div class="score">
+            <b>4,8</b>
+            <div>
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <span>Sur 5 · 138 avis Google</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-grid">
+          <blockquote class="review" data-reveal>
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <p>« Un endroit magnifique, une décoration soignée et des pâtisseries dignes des plus grands salons parisiens. Le fraisier est à tomber ! »</p>
+            <footer><span class="avatar" aria-hidden="true">T</span><div><cite>Tia Maria</cite><small>Avis Google</small></div></footer>
+          </blockquote>
+          <blockquote class="review" data-reveal data-delay="1">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <p>« Le meilleur brunch de Bizerte. L'accueil est chaleureux et l'ambiance vintage avec les vinyles est juste parfaite. »</p>
+            <footer><span class="avatar" aria-hidden="true">H</span><div><cite>Houyem</cite><small>Avis Google</small></div></footer>
+          </blockquote>
+          <blockquote class="review" data-reveal data-delay="2">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <p>« Une expérience authentique. On sent le goût du fait maison dans chaque bouchée. Je recommande vivement la tarte au citron. »</p>
+            <footer><span class="avatar" aria-hidden="true">A</span><div><cite>Ahmed B.</cite><small>Avis Google</small></div></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TROUVER -->
+  <section class="section" id="trouver">
+    <div class="wrap find">
+      <div data-reveal>
+        <p class="eyebrow">Nous trouver</p>
+        <h2>Venez nous<br><span class="serif-accent">rendre visite.</span></h2>
+        <p style="color:var(--ink-soft)">Une commande spéciale, une réservation ou simplement l'envie de partager un moment gourmand ? Passez nous voir ou appelez-nous.</p>
+        <dl class="info-list">
+          <div class="info-row">
+            <dt>Adresse</dt>
+            <dd>Sidi Salem, Bizerte, Tunisie<small>7VPC+PX6 · à côté d'Electroconfort</small></dd>
+          </div>
+          <div class="info-row">
+            <dt>Téléphone</dt>
+            <dd><a href="tel:+21672413676">+216 72 413 676</a><small>Commandes &amp; réservations de gâteaux</small></dd>
+          </div>
+          <div class="info-row">
+            <dt>Horaires</dt>
+            <dd>
+              <div class="hours">
+                <div><span>Mardi – Vendredi</span><span>07:00 – 23:00</span></div>
+                <div><span>Samedi</span><span>07:00 – 23:00</span></div>
+                <div><span>Dimanche</span><span>07:00 – 23:00</span></div>
+                <div><span>Lundi</span><span class="closed">Fermé</span></div>
+              </div>
+            </dd>
+          </div>
+          <div class="info-row">
+            <dt>Instagram</dt>
+            <dd><a href="https://www.instagram.com/madelina_bizerte/" target="_blank" rel="noopener">@madelina_bizerte</a><small>Les créations du jour, en stories</small></dd>
+          </div>
+        </dl>
+        <div class="hero__actions" style="margin-top:1.7rem">
+          <a class="btn btn--solid" href="https://www.google.com/maps/search/?api=1&amp;query=Madelina%20Sidi%20Salem%20Bizerte" target="_blank" rel="noopener">Itinéraire <span class="arw" aria-hidden="true">→</span></a>
+          <a class="btn btn--outline" href="tel:+21672413676">Appeler maintenant</a>
+        </div>
+      </div>
+      <div class="map" data-reveal data-delay="1">
+        <iframe title="Carte — madélina, Sidi Salem, Bizerte" src="https://www.google.com/maps?q=Madelina%2C%20Sidi%20Salem%2C%20Bizerte%2C%20Tunisie&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <span class="map__tag">Sidi Salem · Bizerte</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <section class="band">
+    <div class="band__inner" data-reveal>
+      <p class="eyebrow" style="justify-content:center;color:rgba(250,245,238,.8)">Sur commande</p>
+      <h2>Un gâteau pour votre occasion ?</h2>
+      <p>Anniversaires, mariages, goûters d'entreprise : Haifa compose vos pièces sur mesure. Il suffit d'un appel, deux jours à l'avance.</p>
+      <div class="band__actions">
+        <a class="btn btn--ghost" href="tel:+21672413676">Réserver vos gâteaux</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/madelina_bizerte/" target="_blank" rel="noopener">Écrire sur Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="brand">
+          <img class="brand__logo" src="assets/logo.webp" alt="Logo madélina" width="56" height="56" loading="lazy">
+          <span class="brand__txt"><span class="brand__word">madélina</span></span>
+        </div>
+        <p>Votre escale gourmande à Bizerte. Pâtisserie artisanale et café d'exception, par Haifa Ben Salem.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/madelina_bizerte/" target="_blank" rel="noopener" aria-label="Instagram madélina">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.7 0 3 0 4.1.06 1 .05 1.7.2 2.3.44.6.23 1.1.54 1.6 1.04.5.5.8 1 1.04 1.6.24.6.39 1.3.44 2.3.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1-.2 1.7-.44 2.3a4.4 4.4 0 0 1-1.04 1.6c-.5.5-1 .8-1.6 1.04-.6.24-1.3.39-2.3.44-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1-.05-1.7-.2-2.3-.44a4.4 4.4 0 0 1-1.6-1.04 4.4 4.4 0 0 1-1.04-1.6c-.24-.6-.39-1.3-.44-2.3C2 15 2 14.7 2 12s0-3 .06-4.1c.05-1 .2-1.7.44-2.3.23-.6.54-1.1 1.04-1.6.5-.5 1-.8 1.6-1.04.6-.24 1.3-.39 2.3-.44C7.6 2 7.9 2 12 2Zm0 3.6a6.4 6.4 0 1 0 0 12.8 6.4 6.4 0 0 0 0-12.8Zm0 2.2a4.2 4.2 0 1 1 0 8.4 4.2 4.2 0 0 1 0-8.4Zm6.6-2.9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+          </a>
+          <a href="tel:+21672413676" aria-label="Appeler madélina">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#maison">La Maison</a></li>
+          <li><a href="#menu">Le Menu</a></li>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#trouver">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Sidi Salem, Bizerte</li>
+          <li>Tunisie</li>
+          <li><a href="tel:+21672413676">+216 72 413 676</a></li>
+          <li><a href="https://www.instagram.com/madelina_bizerte/" target="_blank" rel="noopener">@madelina_bizerte</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Horaires</h4>
+        <ul>
+          <li>Mardi — Dimanche</li>
+          <li>07:00 — 23:00</li>
+          <li style="color:var(--terra-soft)">Lundi fermé</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© <span id="year">2026</span> madélina — Fait maison. Fait avec le cœur. Fait pour vous.</span>
+      <span>Sidi Salem · Bizerte · Tunisie</span>
+    </div>
+  </div>
+</footer>
+
+<!-- VISIONNEUSE -->
+<div class="lightbox" id="lightbox" data-open="false" role="dialog" aria-modal="true" aria-label="Photo agrandie de l'atelier">
+  <button class="lightbox__btn lightbox__close" type="button" aria-label="Fermer la photo">&times;</button>
+  <button class="lightbox__btn lightbox__prev" type="button" aria-label="Photo précédente">&#8249;</button>
+  <button class="lightbox__btn lightbox__next" type="button" aria-label="Photo suivante">&#8250;</button>
+  <figure class="lightbox__fig">
+    <img id="lightboxImg" src="" alt="">
+    <figcaption id="lightboxCap"></figcaption>
+  </figure>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* sticky nav */
+  var nav = document.getElementById("nav");
+  var onScroll = function () {
+    if (window.scrollY > 40) nav.classList.add("is-stuck");
+    else nav.classList.remove("is-stuck");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  /* mobile sheet */
+  var toggle = document.getElementById("navToggle");
+  var sheet = document.getElementById("navSheet");
+  var setOpen = function (open) {
+    sheet.setAttribute("data-open", open ? "true" : "false");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+  };
+  toggle.addEventListener("click", function () {
+    setOpen(sheet.getAttribute("data-open") !== "true");
+  });
+  sheet.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+
+  /* menu filter */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var dishes = Array.prototype.slice.call(document.querySelectorAll(".dish"));
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var f = tab.getAttribute("data-filter");
+      tabs.forEach(function (t) { t.setAttribute("aria-pressed", t === tab ? "true" : "false"); });
+      dishes.forEach(function (d) {
+        var show = f === "all" || d.getAttribute("data-cat") === f;
+        d.classList.toggle("is-hidden", !show);
+      });
+    });
+  });
+
+  /* scroll reveal */
+  var items = document.querySelectorAll("[data-reveal]");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { entry.target.classList.add("is-in"); io.unobserve(entry.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add("is-in"); });
+  }
+
+  /* galerie : visionneuse plein écran */
+  var shots = Array.prototype.slice.call(document.querySelectorAll(".shot__btn[data-index]"));
+  var box = document.getElementById("lightbox");
+  if (shots.length && box) {
+    var boxImg = document.getElementById("lightboxImg");
+    var boxCap = document.getElementById("lightboxCap");
+    var current = 0;
+    var lastFocus = null;
+    var openAt = function (i) {
+      current = (i + shots.length) % shots.length;
+      var img = shots[current].querySelector("img");
+      var cap = shots[current].parentNode.querySelector("figcaption");
+      boxImg.src = img.currentSrc || img.src;
+      boxImg.alt = img.alt;
+      boxCap.textContent = cap ? cap.textContent : "";
+      box.setAttribute("data-open", "true");
+      document.body.style.overflow = "hidden";
+    };
+    var closeBox = function () {
+      box.setAttribute("data-open", "false");
+      document.body.style.overflow = "";
+      if (lastFocus) lastFocus.focus();
+    };
+    shots.forEach(function (btn, i) {
+      btn.addEventListener("click", function () { lastFocus = btn; openAt(i); });
+    });
+    box.querySelector(".lightbox__close").addEventListener("click", closeBox);
+    box.querySelector(".lightbox__prev").addEventListener("click", function () { openAt(current - 1); });
+    box.querySelector(".lightbox__next").addEventListener("click", function () { openAt(current + 1); });
+    box.addEventListener("click", function (e) { if (e.target === box) closeBox(); });
+    document.addEventListener("keydown", function (e) {
+      if (box.getAttribute("data-open") !== "true") return;
+      if (e.key === "Escape") closeBox();
+      else if (e.key === "ArrowLeft") openAt(current - 1);
+      else if (e.key === "ArrowRight") openAt(current + 1);
+    });
+  }
+
+  /* open / closed */
+  var dot = document.getElementById("statusDot");
+  var label = document.getElementById("statusText");
+  var now = new Date();
+  var day = now.getDay();
+  var mins = now.getHours() * 60 + now.getMinutes();
+  var open = day !== 1 && mins >= 7 * 60 && mins < 23 * 60;
+  if (dot && label) {
+    if (open) {
+      label.textContent = "Ouvert · jusqu'à 23:00";
+    } else {
+      dot.classList.add("is-closed");
+      label.textContent = day === 1 ? "Fermé le lundi" : "Fermé · ouvre à 07:00";
+    }
+  }
+
+  var y = document.getElementById("year");
+  if (y) y.textContent = String(new Date().getFullYear());
+})();
+</script>
+</body>
+</html>
